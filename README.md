@@ -1,24 +1,28 @@
 # 秋秋 Obsidian 笔记助手
 
-把主题、文章、剪藏或已有笔记整理成可链接、可行动、可持续迭代的 Obsidian 笔记。
+一个面向个人知识库的 Obsidian skill。它能把主题、文章、剪藏和已有笔记整理成结构清晰、可链接、可持续维护的知识系统。
 
-当前版本支持从 0 到 1 规划 Obsidian 文件夹、首页工作台、KOS 样式、七节常青笔记卡片、知识库双向链接，以及芒格多元思维模型自动打标。
+调用方式：
 
-## 核心能力
+```text
+使用 $qiuqiu-obsidian-notes，……
+```
 
-- 将一个概念整理成七节常青卡片。
-- 从文章、剪藏或已有笔记中提炼公共知识。
-- 搜索知识库已有卡片并建立真实 `[[双向链接]]`。
-- 使用芒格多元思维模型格栅自动生成 `tags`。
-- 参考现有 Vault 的目录和笔记，从 0 到 1 生成文件夹结构预览。
-- 根据真实目录生成首页工作台，并建立可验证的导航入口。
-- 生成或更新根目录 `kos.css`，提供 KOS 视觉规范和安全差异预览。
-- 安全新建或增量更新 Markdown 文件。
-- 保留用户填写的私人内化、来源、批注和现有链接。
+## 适合做什么
 
-## 七节常青卡片
+| 功能 | 结果 | 默认位置 |
+| --- | --- | --- |
+| 常青笔记 | 七节知识卡片，保留最后一节供你内化 | `03-Resources/Evergreen/` |
+| 心智模型打标 | 将模型标签写入现有 YAML 的 `tags` | 原笔记 |
+| 文件夹规划 | 根据真实 Vault 生成目录预览 | Vault 根目录 |
+| 首页工作台 | 生成可导航的首页 Markdown | `00-Home.md` |
+| KOS 样式 | 设计或更新 `kos.css` | Vault 根目录 |
 
-固定结构：
+## 五项核心能力
+
+### 1. 七节常青笔记
+
+每张卡片只解释一个可以独立命名的概念，固定包含：
 
 1. 问题（Problem）
 2. 概念（Concept）
@@ -28,112 +32,123 @@
 6. 边界（Boundary）
 7. 内化（Insight）
 
-前六节由 AI 提炼公共知识；第七节始终保留给用户填写：
+前六节由 AI 提炼公共知识，第七节留给你填写自己的理解、经历和迁移。AI 不代写私人内化。
 
-> AI 提炼公共知识，你沉淀私人知识。
+### 2. 芒格多元思维模型标签
 
-## 芒格心智模型标签
-
-常青卡片完成后，技能会强制调用心智模型打标流程：
-
-```text
-提取核心观点与机制
-→ 判断底层学科
-→ 筛选1–5个规范标签
-→ 写入YAML的tags
-```
-
-示例：
+常青卡片完成后，会先分析核心机制，再从 15 个规范学科中选择最多 3–5 个标签，写入原有 YAML 的 `tags`：
 
 ```yaml
-tags: [心智模型/微观经济学, 心智模型/复杂系统与决策科学]
+tags:
+  - 心智模型/微观经济学
+  - 心智模型/复杂系统与决策科学
 ```
 
-标签按底层规律分类，不按“AI文章、跑步文章、商业文章”等表面主题分类。技能内置 15 个规范学科标签，不会创建单独的 `mental_models` 属性。
+不新增 `mental_models` 属性，也不按“AI文章、商业文章”等表面主题强行分类。
 
-## 使用示例
+### 3. 从 0 到 1 规划 Vault
 
-只生成内容，不保存：
+技能会先读取现有目录、笔记数量和代表性笔记，再区分“已存在、建议新增、需要决定”的目录。默认识别的编号结构包括：
+
+```text
+00-Attachments/   附件与素材
+01-Projects/      进行中的项目
+02-Areas/         持续维护的领域
+03-Resources/     可复用知识与资料
+04-Archives/      已完成但仍需保留的内容
+05-Agents/        技能与自动化
+```
+
+规划不会自动移动、重命名或删除笔记。只有你明确确认后，才创建缺失文件夹。
+
+### 4. 首页工作台
+
+根据真实目录和常用索引生成 `00-Home.md`，通常包含项目、领域、资源、归档、Agents、常青卡片和收件箱等入口。只链接到真实存在的文件或文件夹，不为了视觉效果创建空文件。
+
+### 5. KOS CSS
+
+检查现有主题和 CSS snippets 后，生成或更新 Vault 根目录的 `kos.css`。默认使用 Obsidian CSS 变量、低饱和色彩和 `.kos-*` 前缀，并提供差异预览，不静默覆盖已有样式。
+
+## 直接复制使用
+
+### 制作常青卡片
 
 ```text
 使用 $qiuqiu-obsidian-notes，把“机会成本”制作成一张 Obsidian 常青笔记卡片，先不保存。
 ```
 
-生成并保存：
+### 从文章整理笔记
 
 ```text
-使用 $qiuqiu-obsidian-notes，把“费曼学习法”制作成常青卡片并保存。
+使用 $qiuqiu-obsidian-notes，把下面这篇文章整理成常青卡片并保存：[粘贴文章]
 ```
 
-从素材生成：
+### 给已有笔记打标签
 
 ```text
-使用 $qiuqiu-obsidian-notes，把下面这篇文章整理成常青卡片并归档：[粘贴文章]
+使用 $qiuqiu-obsidian-notes，给“03-Resources/Evergreen/机会成本.md”添加芒格心智模型标签，只修改 YAML。
 ```
 
-只给已有笔记打标签：
-
-```text
-使用 $qiuqiu-obsidian-notes，给“03-Resources/Evergreen/机会成本.md”添加芒格心智模型标签，只修改YAML。
-```
-
-从现有笔记规划文件夹：
+### 规划并创建文件夹
 
 ```text
 使用 $qiuqiu-obsidian-notes，参考我的 Obsidian 笔记，从 0 到 1 规划文件夹结构，先只输出预览，不要创建。
 ```
 
-确认后创建缺失文件夹：
+确认后：
 
 ```text
 确认创建上一步规划的文件夹，只创建缺失目录，不移动或重命名现有笔记。
 ```
 
-生成首页工作台：
+### 生成首页工作台
 
 ```text
 使用 $qiuqiu-obsidian-notes，参考我的 Obsidian 笔记生成首页工作台，先输出 Markdown 预览，不要写入。
 ```
 
-生成 KOS 样式：
+### 设计 KOS 样式
 
 ```text
 使用 $qiuqiu-obsidian-notes，参考我的首页和笔记风格设计 kos.css，先输出 CSS 和差异说明，不要写入。
 ```
 
-## 默认 Obsidian 约定
+## 安全规则
 
-- 常青卡片保存到 `03-Resources/Evergreen/`。
-- 文件名等于核心词，不添加日期、序号或冗余后缀。
+- 默认先输出内容或预览；用户明确要求保存后才写入文件。
+- 同名文件存在时先展示差异，不静默覆盖。
+- 不删除、移动、批量重命名或合并已有笔记。
+- 双链只指向真实存在或用户明确计划创建的目标。
+- 不把 `.obsidian/`、`.git/`、`.trash/`、缓存和凭据当作知识内容分析。
+- 更新 `kos.css` 时不修改第三方主题文件，也不删除已有 CSS 规则。
+
+## 默认约定
+
+- 文件名使用核心词，不添加日期、序号或冗余后缀。
 - 正文不重复添加与文件名相同的一级标题。
-- YAML 使用 `name`、`description`、`category`、`tags`、`source`、`status`。
-- 双链只指向真实存在或用户明确计划创建的笔记。
-- 同名文件存在时不得静默覆盖。
+- YAML 沿用知识库已有字段：`name`、`description`、`category`、`tags`、`source`、`status`。
+- 首页默认写入 Vault 根目录 `00-Home.md`；已有首页时先合并规划，不直接覆盖。
 
 ## 文件结构
 
 ```text
 qiuqiu-obsidian-notes/
 ├── SKILL.md
+├── README.md
 ├── agents/
 │   └── openai.yaml
 └── references/
     ├── evergreen-card.md
     ├── mental-model-tags.md
+    ├── vault-bootstrap.md
+    ├── home-dashboard.md
+    ├── kos-css.md
     └── obsidian-standards.md
 ```
 
-- `SKILL.md`：触发规则、模板路由与安全写入流程。
-- `evergreen-card.md`：七节常青卡片模板和质量门禁。
-- `mental-model-tags.md`：15 个芒格多元思维模型标签及判断流程。
-- `obsidian-standards.md`：YAML、双链、命名与更新规范。
-- `vault-bootstrap.md`：从现有 Vault 推断并安全创建文件夹结构的流程。
-- `home-dashboard.md`：首页工作台的信息架构与安全写入规则。
-- `kos-css.md`：KOS `kos.css` 的样式方向、覆盖范围与验收规则。
-
-默认识别的编号式结构也包括 `04-Archives/`，用于存放已完成、暂不活跃但仍需保留的项目与资料。
-
 ## 校验
+
+在技能目录执行：
 
 ```bash
 python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
