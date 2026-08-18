@@ -35,6 +35,7 @@
 | 文件夹规划 | 根据真实 Vault 生成目录预览 | Vault 根目录 |
 | 首页工作台 | 生成可导航的首页 Markdown | `00-Home.md` |
 | KOS 样式 | 设计或更新 `kos.css` | Vault 根目录 |
+| 系统守则分析 | 按健康 → 生活 → 价值分析决策与困惑 | 对话输出 |
 
 ## 五项核心能力
 
@@ -86,6 +87,22 @@ tags:
 ### 5. KOS CSS
 
 检查现有主题和 CSS snippets 后，生成或更新 Vault 根目录的 `kos.css`。默认使用 Obsidian CSS 变量、低饱和色彩和 `.kos-*` 前缀，并提供差异预览，不静默覆盖已有样式。
+
+### 6. 秋秋笔记系统守则
+
+分析决策和困惑时，遵循：
+
+```text
+健康 > 生活 > 价值
+```
+
+先定位主线和领域，再对照领域基本事实，检查三线耦合，给出判断，最后追问缺失信息。11 个领域包括运动、饮食、睡眠、情绪、家庭、社群、体验、休闲、财务、工作和学习。
+
+直接使用：
+
+```text
+使用 $qiuqiu-obsidian-notes，分析我是否应该接这个新项目。
+```
 
 ## 直接复制使用
 
@@ -161,6 +178,7 @@ qiuqiu-obsidian-notes/
     ├── vault-bootstrap.md
     ├── home-dashboard.md
     ├── kos-css.md
+    ├── system-rules.md
     └── obsidian-standards.md
 ```
 
