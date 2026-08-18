@@ -1,0 +1,4 @@
+interface:
+  display_name: "秋秋 Obsidian 笔记助手"
+  short_description: "制作 Obsidian 常青笔记、建立双链并自动添加芒格心智模型标签"
+  default_prompt: "使用 $qiuqiu-obsidian-notes，把这个主题制作成带芒格心智模型标签的 Obsidian 常青卡片。"
