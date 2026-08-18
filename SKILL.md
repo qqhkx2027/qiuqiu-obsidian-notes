@@ -106,7 +106,7 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 4. 修改后运行：
 
    ```bash
-   python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
+   python3 tools/validate_skill.py .
    ```
 
 ## 文件导航

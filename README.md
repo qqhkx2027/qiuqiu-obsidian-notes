@@ -187,5 +187,5 @@ qiuqiu-obsidian-notes/
 在技能目录执行：
 
 ```bash
-python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py .
+python3 tools/validate_skill.py .
 ```
