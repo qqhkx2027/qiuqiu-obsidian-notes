@@ -1,6 +1,6 @@
 ---
 name: qiuqiu-obsidian-notes
-description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 的结构化笔记，并安全创建、更新、链接 Markdown 文件及添加芒格多元思维模型标签。适用于 Obsidian 笔记、常青笔记、知识卡片、双向链接、YAML 属性、知识网络、心智模型标签、思维模型分类、芒格模型、mental models、跨学科连接或材料归档场景。当前支持七节常青笔记卡片与心智模型自动打标。
+description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 的结构化笔记，并安全创建、更新、链接 Markdown 文件、生成从 0 到 1 的文件夹结构及添加芒格多元思维模型标签。适用于 Obsidian 笔记、常青笔记、知识卡片、双向链接、YAML 属性、知识网络、心智模型标签、思维模型分类、芒格模型、mental models、跨学科连接、参考现有笔记搭建文件夹或材料归档场景。
 ---
 
 # 秋秋 Obsidian 笔记助手
@@ -15,6 +15,7 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 - **从文章或已有笔记生成**：忠实提炼素材，用自己的话重组，不大段复制。
 - **更新已有笔记**：先读取原文件并保留有价值内容、用户内化和现有链接。
 - **只要求心智模型打标**：分析整篇笔记，只把规范心智模型标签合并到 YAML 的 `tags`，不改正文。
+- **从 0 到 1 搭建 Obsidian**：先读取现有笔记和目录，生成文件夹结构预览；只有用户确认后才创建缺失文件夹。
 - **同名文件已存在**：不得静默覆盖；若用户没有明确要求更新，先展示差异并询问。
 
 ## 模板路由
@@ -23,8 +24,9 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 | --- | --- | --- |
 | 常青笔记、常青卡片、知识卡片、概念卡片 | [七节常青卡片](references/evergreen-card.md) | `03-Resources/Evergreen/` |
 | 心智模型标签、添加模型标签、思维模型分类、芒格模型、mental models、跨学科连接 | [芒格多元思维模型标签](references/mental-model-tags.md) | 原文件 |
+| 从 0 到 1 搭建 Obsidian、生成文件夹、参考我的笔记规划目录、重建 Obsidian 结构 | [Vault 文件夹引导](references/vault-bootstrap.md) | 当前 Vault 根目录 |
 
-所有写入任务同时读取 [Obsidian 笔记标准](references/obsidian-standards.md)。生成常青卡片时必须在正文完成后显式调用 [芒格多元思维模型标签](references/mental-model-tags.md) 的完整判断流程，再把结果写入 `tags`；不得新增 `mental_models` 等重复属性，也不得由常青卡片流程自行猜标签。未指定类型时，若输入围绕一个可独立解释的概念，默认使用常青卡片。
+所有写入任务同时读取 [Obsidian 笔记标准](references/obsidian-standards.md)。文件夹引导任务必须读取 [Vault 文件夹引导](references/vault-bootstrap.md)；常青卡片还必须在正文完成后显式调用 [芒格多元思维模型标签](references/mental-model-tags.md) 的完整判断流程，再把结果写入 `tags`。不得新增 `mental_models` 等重复属性，也不得由常青卡片流程自行猜标签。
 
 ## 核心工作流
 
@@ -37,6 +39,8 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 7. **生成 YAML**：只采用打标子流程返回的 1–5 个规范值写入 `tags`；不得新增 `mental_models`，不得按标题或关键词临时补标签。
 8. **安全交付**：用户要求写入时保存为 `03-Resources/Evergreen/{核心词}.md`；否则只输出可复制内容。
 9. **最终检查**：核对事实、来源、七节结构、链接目标、文件名、YAML，并确认打标子流程已经执行。
+
+文件夹引导任务使用单独流程：扫描 → 归纳 → 预览 → 确认 → 创建；不得把“分析结构”直接当成“已执行创建”。
 
 ## 最高优先级规则
 
@@ -76,3 +80,4 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 - `references/evergreen-card.md`：七节常青卡片结构、写作规则和完整模板。
 - `references/obsidian-standards.md`：YAML、双链、文件命名、保存与更新规范。
 - `references/mental-model-tags.md`：芒格多元思维模型标签表、判断流程和更新规则。
+- `references/vault-bootstrap.md`：从现有笔记推断并安全创建 Obsidian 文件夹结构的流程。
