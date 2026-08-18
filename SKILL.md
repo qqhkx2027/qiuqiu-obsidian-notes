@@ -32,6 +32,7 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 - **从 0 到 1 搭建 Obsidian**：先读取现有笔记和目录，生成文件夹结构预览；只有用户确认后才创建缺失文件夹。
 - **首页工作台**：根据 Vault 的真实目录和常用笔记，规划或生成一个可导航的首页 Markdown 工作台。
 - **KOS 样式**：规划或更新 Vault 根目录的 `kos.css`，只覆盖用户确认的样式，不破坏已有 CSS。
+- **系统守则分析**：用户说“分析 XX”或提出决策、困惑时，读取 [秋秋笔记系统守则](references/system-rules.md)，按健康 → 生活 → 价值的优先级给判断。
 - **同名文件已存在**：不得静默覆盖；若用户没有明确要求更新，先展示差异并询问。
 - **用户是新手或说“从零开始”**：从“认识现状 → 最小结构”开始，不直接生成复杂插件方案。
 
@@ -44,6 +45,7 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 | 从 0 到 1 搭建 Obsidian、生成文件夹、参考我的笔记规划目录、重建 Obsidian 结构 | [Vault 文件夹引导](references/vault-bootstrap.md) | 当前 Vault 根目录 |
 | 首页、首页工作台、Home、Dashboard、知识管理首页 | [首页工作台](references/home-dashboard.md) | `00-Home.md` 或用户指定路径 |
 | KOS、kos.css、Obsidian 样式、知识操作系统视觉 | [KOS CSS](references/kos-css.md) | Vault 根目录 `kos.css` |
+| 分析、决策、困惑、系统守则、分析 XX | [秋秋笔记系统守则](references/system-rules.md) | 对话分析，不默认写入 |
 
 所有写入任务同时读取 [Obsidian 笔记标准](references/obsidian-standards.md)。文件夹引导任务必须读取 [Vault 文件夹引导](references/vault-bootstrap.md)；常青卡片还必须在正文完成后显式调用 [芒格多元思维模型标签](references/mental-model-tags.md) 的完整判断流程，再把结果写入 `tags`。不得新增 `mental_models` 等重复属性，也不得由常青卡片流程自行猜标签。
 
@@ -60,6 +62,8 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 9. **最终检查**：核对事实、来源、七节结构、链接目标、文件名、YAML，并确认打标子流程已经执行。
 
 文件夹引导任务使用单独流程：扫描 → 归纳 → 预览 → 确认 → 创建；首页工作台使用扫描 → 信息架构 → Markdown 预览 → 确认 → 写入；KOS CSS 使用检查现有 CSS → 样式提案 → 差异预览 → 确认 → 写入。不得把“分析结构”直接当成“已执行创建”。
+
+涉及个人决策、困惑或“分析 XX”时，必须先读取系统守则，依次执行：定位 → 对照领域基本事实 → 耦合检查 → 给判断 → 追问关键信息。三条主线冲突时，健康优先，生活其次，价值最后。
 
 ## 新手任务路由
 
@@ -113,3 +117,4 @@ description: 将主题、文章、剪藏或已有笔记整理成适合 Obsidian 
 - `references/vault-bootstrap.md`：从现有笔记推断并安全创建 Obsidian 文件夹结构的流程。
 - `references/home-dashboard.md`：首页工作台的信息架构、链接和写入规范。
 - `references/kos-css.md`：KOS `kos.css` 的安全生成、覆盖范围和验收规范。
+- `references/system-rules.md`：健康—生活—价值优先级、11 个领域基本事实和对话分析协议。
