@@ -1,4 +1,4 @@
 interface:
   display_name: "秋秋 Obsidian 笔记助手"
-  short_description: "从零规划 Obsidian 文件夹、制作常青笔记并自动打心智模型标签"
-  default_prompt: "使用 $qiuqiu-obsidian-notes，参考我的 Obsidian 笔记规划文件夹结构。"
+  short_description: "规划 Obsidian 首页、KOS 样式、文件夹与常青笔记"
+  default_prompt: "使用 $qiuqiu-obsidian-notes，参考我的 Obsidian 笔记生成首页工作台和 KOS 样式预览。"
